@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.justplay.posit.R
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.launch
 
 class SplashFragment : Fragment() {
 
@@ -23,8 +25,8 @@ class SplashFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        runBlocking {
-            delay(1_000)
+        CoroutineScope(Dispatchers.Main).launch {
+            delay(4_000)
             findNavController().navigate(R.id.action_splashFragment_to_liveVideoFragment)
         }
     }
