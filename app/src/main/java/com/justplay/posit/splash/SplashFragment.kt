@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.justplay.posit.R
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
@@ -24,7 +25,7 @@ class SplashFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         runBlocking {
             delay(1_000)
-
+            findNavController().navigate(R.id.action_splashFragment_to_liveVideoFragment)
         }
     }
 }

@@ -9,5 +9,14 @@
         android:id="@+id/splashFragment"
         android:name="com.justplay.posit.splash.SplashFragment"
         android:label="fragment_splash"
-        tools:layout="@layout/fragment_splash" />
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_liveVideoFragment"
+            app:destination="@id/liveVideoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/liveVideoFragment"
+        android:name="com.justplay.posit.video_screen.LiveVideoFragment"
+        android:label="live_video_fragment"
+        tools:layout="@layout/live_video_fragment" />
 </navigation>
