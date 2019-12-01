@@ -33,10 +33,11 @@ Realtime annotation is achieved by using a custom lightweight deep learning mode
 ## The Plan
 
 * December 7, 2019 - Finalizing the app's use-case to target a specific aspect which will be leveraged using the ML model.
-* December 20, 2019 - A working prototype of an android app designed according to the selected UI (without ML model).
+* December 20, 2019 - A working prototype of an android app designed according to the UI design (without ML model).
 * January 15, 2020 - Improve the model with an encoding layer to identify the product from a catalogue of items in the backend.
 * January 30, 2020 - Convert the existing ML model to use tensor flow lite and complete the offline migration of the current ML model 
 * Feb 15, 2020 - Integrating the tensor flow model into the android app.
+* March 15, 2020 - Enable the app to listen/observe for any video that is currently playing in the android platform and react by showing the posit layer (product prediction layer).
 * March 31, 2020 - Tested working product (standalone app, SDK for distribution)
 
 #### Distribution Plan
