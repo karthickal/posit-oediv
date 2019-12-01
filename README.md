@@ -28,7 +28,7 @@ Realtime annotation is achieved by using a custom lightweight deep learning mode
 
 * December 7, 2019 - Finializing the app's use-case to target a specific aspect which will be leveraged using the ML model.
 * December 20, 2019 - A working prototype of an android app that can detect people and apparels in a video.
-* January 1, 2020 - Convert the existing ML model to tensor flow lite Compelete the offine migration of the current ML model 
+* January 1, 2020 - Convert the existing ML model to use tensor flow lite and compelete the offine migration of the current ML model 
 * January 15, 2020 - Integrating the tensor flow model into the android app.
 * January 31, 2020 - Improve the model with an encoding layer to identify the product from a catalog of items in the backend.
 * March 31, 2020 - Tested working product (standalone app, SDK for distribution)
