@@ -20,10 +20,10 @@ Realtime annotation is achieved by using a custom lightweight deep learning mode
 * Prevents data piracy by not transferring the video to the server for processing.
 
 #### working: 
-The application uses 2 models to achieve its purpose.
-The first model identifies different products and the persons in the scene on the fly and classifies them according to the product ID and the face ID of the celebrity.
-When the posit layer is enabled, the identified products are run against the second model which then creates a unique 128-bit fingerprint which closely represents the object on the screen and other meta-data of the products. 
-The above scenario happens offline. When the user wishes to buy any product, the generated 128-bit fingerprint is sent to the server which gives the URL of the market place to the buy the closely related product.
+* The application uses 2 models to achieve its purpose.
+* The first model identifies different products and the persons in the scene on the fly and classifies them according to the product ID and the face ID of the celebrity.
+* When the posit layer is enabled, the identified products are run against the second model which then creates a unique 128-bit fingerprint which closely represents the object on the screen and other meta-data of the products. 
+* The above scenario happens offline. When the user wishes to buy any product, the generated 128-bit fingerprint is sent to the server which gives the URL of the market place to the buy the closely related product.
 
 #### So far
 
