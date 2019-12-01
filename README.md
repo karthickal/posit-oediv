@@ -20,7 +20,7 @@ Realtime annotation is achieved by using a custom lightweight deep learning mode
 * Prevents data piracy by not transferring the video to the server for processing.
 
 #### working: 
-* The application uses 2 models to achieve its purpose.
+* The application uses 2 oflline machine learning models to achieve its purpose.
 * The first model identifies different products and the persons in the scene on the fly and classifies them according to the product ID and the face ID of the celebrity.
 * When the posit layer is enabled, the identified products are run against the second model which then creates a unique 128-bit fingerprint which closely represents the object on the screen and other meta-data of the products. 
 * The above scenario happens offline. When the user wishes to buy any product, the generated 128-bit fingerprint is sent to the server which gives the URL of the market place to the buy the closely related product.
@@ -54,7 +54,7 @@ Realtime annotation is achieved by using a custom lightweight deep learning mode
 * Make our tech a part of Android OS so that we can make all videos interactive instead of just those that are played from our distribution partners. This includes videos that are
   * played locally
   * streamed/played via an app
-   
+* Or enable a way to observe and react to the event of any video that is currently playing on the android framework.
 * Expose the Google Shopping Ads data as an API so that we can display products for sale to users. This will help us become globally available instantly by eliminating the need to partner with e-commerce vendors independently. 
  
 ## About Us
@@ -70,3 +70,6 @@ Realtime annotation is achieved by using a custom lightweight deep learning mode
 #### Our Startup
 
 We are a startup working on improving the "video watch" experience for consumers. For information please check - www.posit.tech
+
+
+
