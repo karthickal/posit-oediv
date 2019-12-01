@@ -21,7 +21,7 @@ Realtime annotation is achieved by using a custom lightweight deep learning mode
 #### So far
 
 * Launched a web app to understand user behavior and get initial feedback. Please see - [Web Demo](http://www.justplay.tv/watch/1). Play the video and pause anywhere to explore the products used. Note that this demo does not use On Device machine learning and was made to collect user feedback.
-* Beta version of SDK available on Android. The SDK is currently under test with an Indian video publisher app. The SDK currently does not incorporate On Device Learning. Check out our [SDK Documentation](../resources/posit_sdk_doc.pdf).   
+* Beta version of SDK available on Android. The SDK is currently under test with an Indian video publisher app. The SDK currently does not incorporate On Device Learning. Check out our [SDK Documentation](../master/resources/posit_sdk_doc.pdf).   
 
 ## The Plan
 
@@ -48,6 +48,18 @@ Realtime annotation is achieved by using a custom lightweight deep learning mode
 * Expose the Google Shopping Ads data as an API so that we can display products for sale to users. This will help us become globally available instantly by eliminating the need to partner with e-commerce vendors independently. 
  
 ## About Us
+
+#### The Development Team
+
+* Udhaya Kumar - Android Developer 
+* Shiddharth Saran - Python Developer  
+* Somasundaram M - Machine Learning Engineer
+* Jailany M - React Developer
+* Karthick L - Product
+
+#### Our Startup
+
+We are a startup working on improving the "video watch" experience for consumers. For information please check - www.posit.tech
 
 
 
