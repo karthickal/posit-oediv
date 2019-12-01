@@ -61,6 +61,6 @@ Realtime annotation is achieved by using a custom lightweight deep learning mode
 
 #### Our Startup
 
-We are a startup working on improving the "video watch" experience for consumers. For information please check - www.posit.tech
+We are a startup working on redefining the way videos are consumed today. For more information please check - www.posit.tech
 
 
