@@ -45,7 +45,8 @@ Realtime annotation is achieved by using a custom lightweight deep learning mode
   * played locally
   * streamed/played via an app
    
-* Expose the Google Shopping Ads data as an API so that we can display products for sale to users. This will help us become globally available instantly by eliminating the need to partner with e-commerce vendors independently. 
+* Expose the Google Shopping Ads data as an API so that we can display products for sale to users. This will help us become globally available instantly by eliminating the need to partner with e-commerce vendors independently.
+* Engineering Mentorship to improve detections under occlusions and other complexities 
  
 ## About Us
 
@@ -55,13 +56,11 @@ Realtime annotation is achieved by using a custom lightweight deep learning mode
 * Shiddharth Saran - Python Developer  
 * Somasundaram M - Machine Learning Engineer
 * Jailany M - React Developer
+* Manju R - Visual Design
 * Karthick L - Product
 
 #### Our Startup
 
 We are a startup working on improving the "video watch" experience for consumers. For information please check - www.posit.tech
-
-
-
 
 
