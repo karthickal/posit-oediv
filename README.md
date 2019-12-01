@@ -10,7 +10,7 @@ Oediv displays relevant and contextual information in realtime over videos. By a
 
 * Discovering similar products from the video for sale (fashion, food, electronics, etc).
 * Following people on social media platforms.
-* offline predictons of products metadata (product price, market availability, etc).
+* offline predictions of products metadata (product price, market availability, etc).
 
 #### On Device Learning
 
@@ -19,18 +19,24 @@ Realtime annotation is achieved by using a custom lightweight deep learning mode
 * Does not require internet; works offline
 * Prevents data piracy by not transferring the video to the server for processing.
 
+#### working: 
+The application uses 2 models to achieve its purpose.
+The first model identifies different products and the persons in the scene on the fly and classifies them according to the product ID and the face ID of the celebrity.
+When the posit layer is enabled, the identified products are run against the second model which then creates a unique 128-bit fingerprint which closely represents the object on the screen and other meta-data of the products. 
+The above scenario happens offline. When the user wishes to buy any product, the generated 128-bit fingerprint is sent to the server which gives the URL of the market place to the buy the closely related product.
+
 #### So far
 
-* Launched a web app to understand user behavior and get initial feedback. Please see - [Web Demo](http://www.justplay.tv/watch/1). Play the video and pause anywhere to explore the products used. Note that this demo does not use On Device machine learning and was made to collect user feedback.
+* Launched a web app to understand user behaviour and get initial feedback. Please see - [Web Demo](http://www.justplay.tv/watch/1). Play the video and pause anywhere to explore the products used. Note that this demo does not use On Device machine learning and was made to collect user feedback.
 * Beta version of SDK available on Android. The SDK is currently under test with an Indian video publisher app. The SDK currently does not incorporate On Device Learning. Check out our [SDK Documentation](../master/resources/posit_sdk_doc.pdf).   
 
 ## The Plan
 
-* December 7, 2019 - Finializing the app's use-case to target a specific aspect which will be leveraged using the ML model.
-* December 20, 2019 - A working prototype of an android app that can detect people and apparels in a video.
-* January 1, 2020 - Convert the existing ML model to use tensor flow lite and compelete the offine migration of the current ML model 
-* January 15, 2020 - Integrating the tensor flow model into the android app.
-* January 31, 2020 - Improve the model with an encoding layer to identify the product from a catalog of items in the backend.
+* December 7, 2019 - Finalizing the app's use-case to target a specific aspect which will be leveraged using the ML model.
+* December 20, 2019 - A working prototype of an android app designed according to the selected UI (without ML model).
+* January 15, 2020 - Improve the model with an encoding layer to identify the product from a catalogue of items in the backend.
+* January 30, 2020 - Convert the existing ML model to use tensor flow lite and complete the offline migration of the current ML model 
+* Feb 15, 2020 - Integrating the tensor flow model into the android app.
 * March 31, 2020 - Tested working product (standalone app, SDK for distribution)
 
 #### Distribution Plan
@@ -63,8 +69,3 @@ Realtime annotation is achieved by using a custom lightweight deep learning mode
 #### Our Startup
 
 We are a startup working on improving the "video watch" experience for consumers. For information please check - www.posit.tech
-
-
-
-
-
