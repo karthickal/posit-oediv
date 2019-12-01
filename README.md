@@ -1,7 +1,7 @@
 # oediV - Video reimagined
 This repository was created as part of a submission for Google's #AndroidDevChallenge.
 
-COVER IMAGE HERE
+![making videos interactive everywhere](./resources/cover_image.jpg)
 
 ## The Idea
 
