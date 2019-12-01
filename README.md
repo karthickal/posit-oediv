@@ -54,8 +54,9 @@ Realtime annotation is achieved by using a custom lightweight deep learning mode
 * Make our tech a part of Android OS so that we can make all videos interactive instead of just those that are played from our distribution partners. This includes videos that are
   * played locally
   * streamed/played via an app
-* Or enable a way to observe and react to the event of any video that is currently playing on the android framework.
-* Expose the Google Shopping Ads data as an API so that we can display products for sale to users. This will help us become globally available instantly by eliminating the need to partner with e-commerce vendors independently. 
+  
+* Expose the Google Shopping Ads data as an API so that we can display products for sale to users. This will help us become globally available instantly by eliminating the need to partner with e-commerce vendors independently.
+* Engineering Mentorship to improve detections under occlusions and other complexities 
  
 ## About Us
 
@@ -65,11 +66,11 @@ Realtime annotation is achieved by using a custom lightweight deep learning mode
 * Shiddharth Saran - Python Developer  
 * Somasundaram M - Machine Learning Engineer
 * Jailany M - React Developer
+* Manju R - Visual Design
 * Karthick L - Product
 
 #### Our Startup
 
-We are a startup working on improving the "video watch" experience for consumers. For information please check - www.posit.tech
-
+We are a startup working on redefining the way videos are consumed today. For more information please check - www.posit.tech
 
 
