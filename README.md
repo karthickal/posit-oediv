@@ -19,26 +19,42 @@ Realtime annotation is achieved by using a custom lightweight deep learning mode
 * Does not require internet; works offline
 * Prevents data piracy by not transferring the video to the server for processing.
 
-#### working: 
-* The application uses 2 oflline machine learning models to achieve its purpose.
-* The first model identifies different products and the persons in the scene on the fly and classifies them according to the product ID and the face ID of the celebrity.
-* When the posit layer is enabled, the identified products are run against the second model which then creates a unique 128-bit fingerprint which closely represents the object on the screen and other meta-data of the products. 
-* The above scenario happens offline. When the user wishes to buy any product, the generated 128-bit fingerprint is sent to the server which gives the URL of the market place to the buy the closely related product.
+#### Workflow
+
+1. A custom SSD model deployed on the device detects objects of interest in the video frame
+2. An auto-encoder model extracts features of the detected objects 
+3. The extracted features are matched for similarity either from 
+   1. a local database containing a minimal catalog of products that is trending (or)
+   2. from the backend server (uses internet)
 
 #### So far
 
-* Launched a web app to understand user behaviour and get initial feedback. Please see - [Web Demo](http://www.justplay.tv/watch/1). Play the video and pause anywhere to explore the products used. Note that this demo does not use On Device machine learning and was made to collect user feedback.
-* Beta version of SDK available on Android. The SDK is currently under test with an Indian video publisher app. The SDK currently does not incorporate On Device Learning. Check out our [SDK Documentation](../master/resources/posit_sdk_doc.pdf).   
+* Launched a web app to understand user behaviour and get initial feedback. Please see - [Web Demo](http://www.justplay.tv/watch/1). Play the video and pause anywhere to explore the products used. Note that this demo does not leverage on device machine learning and displays products only when the video is paused.
+* Alpha version of SDK available on Android. The SDK is currently under test with an Indian video publisher app. The SDK does not incorporate on device learning. Check out our [SDK Documentation](../master/resources/posit_sdk_doc.pdf) for more details.   
 
 ## The Plan
 
-* December 7, 2019 - Finalizing the app's use-case to target a specific aspect which will be leveraged using the ML model.
-* December 20, 2019 - A working prototype of an android app designed according to the UI design (without ML model).
-* January 15, 2020 - Improve the model with an encoding layer to identify the product from a catalogue of items in the backend.
-* January 30, 2020 - Convert the existing ML model to use tensor flow lite and complete the offline migration of the current ML model 
-* Feb 15, 2020 - Integrating the tensor flow model into the android app.
-* March 15, 2020 - Enable the app to listen/observe for any video that is currently playing in the android platform and react by showing the posit layer (product prediction layer).
-* March 31, 2020 - Tested working product (standalone app, SDK for distribution)
+#### Timeline
+
+##### December 2019
+
+1. A working prototype that uses on device machine learning to detect apparel objects.
+2. Distribution Plan & Product Roadmap.
+
+##### January 2020
+
+1. Improved prototype that extract features of the objects on the device.
+2. UI and UX Plan.
+3. Datasource Plan.
+
+##### March 2020
+
+1. Fully trained models.
+2. Beta version of the product.
+
+##### April 2020
+
+1. Producton mode.
 
 #### Distribution Plan
 
