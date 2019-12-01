@@ -8,7 +8,7 @@ COVER IMAGE HERE
 #### Summary
 Oediv displays relevant and contextual information in realtime over videos. By adding an interactive layer over videos, the user can engage with the video in a lot of unique ways including and not limited to - 
 
-* Discovering products for sale (fashion, food, electronics, etc).
+* Discovering similar products for sale (fashion, food, electronics, etc).
 * Following people on social media platforms.
 
 #### On Device Learning
