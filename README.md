@@ -8,8 +8,9 @@ COVER IMAGE HERE
 #### Summary
 Oediv displays relevant and contextual information in realtime over videos. By adding an interactive layer over videos, the user can engage with the video in a lot of unique ways including and not limited to - 
 
-* Discovering similar products for sale (fashion, food, electronics, etc).
+* Discovering similar products from the video for sale (fashion, food, electronics, etc).
 * Following people on social media platforms.
+* offline predictons of products metadata (product price, market availability, etc).
 
 #### On Device Learning
 
@@ -25,8 +26,10 @@ Realtime annotation is achieved by using a custom lightweight deep learning mode
 
 ## The Plan
 
-* December 15, 2019 - A working prototype that can detect people and apparels in a video.
-* January 15, 2020 - Finalize UI/UX.
+* December 7, 2019 - Finializing the app's use-case to target a specific aspect which will be leveraged using the ML model.
+* December 20, 2019 - A working prototype of an android app that can detect people and apparels in a video.
+* January 1, 2020 - Convert the existing ML model to tensor flow lite Compelete the offine migration of the current ML model 
+* January 15, 2020 - Integrating the tensor flow model into the android app.
 * January 31, 2020 - Improve the model with an encoding layer to identify the product from a catalog of items in the backend.
 * March 31, 2020 - Tested working product (standalone app, SDK for distribution)
 
