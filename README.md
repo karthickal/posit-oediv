@@ -10,7 +10,6 @@ Oediv displays relevant and contextual information in realtime over videos. By a
 
 * Discovering similar products from the video for sale (fashion, food, electronics, etc).
 * Following people on social media platforms.
-* offline predictions of products metadata (product price, market availability, etc).
 
 #### On Device Learning
 
@@ -39,13 +38,13 @@ Realtime annotation is achieved by using a custom lightweight deep learning mode
 ##### December 2019
 
 1. A working prototype that uses on device machine learning to detect apparel objects.
-2. Distribution Plan & Product Roadmap.
+2. Product Roadmap.
 
 ##### January 2020
 
 1. Improved prototype that extract features of the objects on the device.
 2. UI and UX Plan.
-3. Datasource Plan.
+3. Acquire dataset for training.
 
 ##### March 2020
 
@@ -54,16 +53,16 @@ Realtime annotation is achieved by using a custom lightweight deep learning mode
 
 ##### April 2020
 
-1. Producton mode.
+1. Production mode.
 
 #### Distribution Plan
 
 * Without Google's support, especially because Android does not have an API for a 3rd party app to listen to video events and share frames, we plan to be available as a plugin for video publishers to integrate into their Android/iOs app. This means only videos streamed via our distribution partners are interactive.
 
-#### Datasource Plan
+#### Dataset Plan
 
 * By partnering with e-commerce vendors for qualified traffic.
-* By on-boarding celebrities and content creators to allow face identification.
+* By on-boarding influencers and content creators to allow face identification.
 
 #### Google's Support 
 
@@ -71,8 +70,8 @@ Realtime annotation is achieved by using a custom lightweight deep learning mode
   * played locally
   * streamed/played via an app
   
-* Expose the Google Shopping Ads data as an API so that we can display products for sale to users. This will help us become globally available instantly by eliminating the need to partner with e-commerce vendors independently.
-* Engineering Mentorship to improve detections under occlusions and other complexities 
+* Access to the Google Shopping Ads data as an API so that we can display products for sale to users. This will help us become globally available instantly by eliminating the need to partner with e-commerce vendors independently.
+* Engineering Mentorship to improve detections under occlusions, different viewpoints and other complexities 
  
 ## About Us
 
