@@ -66,10 +66,11 @@ Realtime annotation is achieved by using a custom lightweight deep learning mode
 
 #### Google's Support 
 
-* Make our tech a part of Android OS so that we can make all videos interactive instead of just those that are played from our distribution partners. This includes videos that are
-  * played locally
-  * streamed/played via an app
+* Make our tech a part of Android with 
+  * OS Level integrations or 
+  * by allowing our app access to the streaming video's view upon user consent.
   
+  This will enable us to make all videos interactive instead of just those that are played from our distribution partners.
 * Access to the Google Shopping Ads data as an API so that we can display products for sale to users. This will help us become globally available instantly by eliminating the need to partner with e-commerce vendors independently.
 * Engineering Mentorship to improve detections under occlusions, different viewpoints and other complexities 
  
