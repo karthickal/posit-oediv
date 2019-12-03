@@ -89,4 +89,5 @@ Realtime annotation is achieved by using a custom lightweight deep learning mode
 
 We are a startup working on redefining the way videos are consumed today. For more information please check - www.posit.tech
 
+**_Note: We are willing to opensource our project along with the dataset, architecture and trained stable versions of all the models._**    
 
