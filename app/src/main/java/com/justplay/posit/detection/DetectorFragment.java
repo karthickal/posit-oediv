@@ -48,7 +48,7 @@ import java.util.List;
  * An activity that uses a TensorFlowMultiBoxDetector and ObjectTracker to detect and then track
  * objects.
  */
-public class DetectorActivity extends CameraActivity implements OnImageAvailableListener {
+public class DetectorFragment extends CameraFragment implements OnImageAvailableListener {
     private static final Logger LOGGER = new Logger();
 
     // Configuration values for the prepackaged SSD model.
@@ -92,14 +92,14 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
         borderedText = new BorderedText(textSizePx);
         borderedText.setTypeface(Typeface.MONOSPACE);
 
-        tracker = new MultiBoxTracker(this);
+        tracker = new MultiBoxTracker(requireContext());
 
         int cropSize = TF_OD_API_INPUT_SIZE;
 
         try {
             detector =
                     TFLiteObjectDetectionAPIModel.create(
-                            getAssets(),
+                            requireContext().getAssets(),
                             TF_OD_API_MODEL_FILE,
                             TF_OD_API_LABELS_FILE,
                             TF_OD_API_INPUT_SIZE,
@@ -110,9 +110,8 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
             LOGGER.e(e, "Exception initializing classifier!");
             Toast toast =
                     Toast.makeText(
-                            getApplicationContext(), "Classifier could not be initialized", Toast.LENGTH_SHORT);
+                            getContext(), "Classifier could not be initialized", Toast.LENGTH_SHORT);
             toast.show();
-            finish();
         }
 
         previewWidth = size.getWidth();
@@ -134,7 +133,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
         cropToFrameTransform = new Matrix();
         frameToCropTransform.invert(cropToFrameTransform);
 
-        trackingOverlay = findViewById(R.id.tracking_overlay);
+        trackingOverlay = getView().findViewById(R.id.tracking_overlay);
         trackingOverlay.addCallback(
                 new OverlayView.DrawCallback() {
                     @Override
@@ -217,7 +216,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
                         computingDetection = false;
 
-                        runOnUiThread(
+                        getActivity().runOnUiThread(
                                 new Runnable() {
                                     @Override
                                     public void run() {

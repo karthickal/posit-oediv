@@ -17,7 +17,6 @@
 package com.justplay.posit.detection;
 
 import android.Manifest;
-import android.app.Fragment;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
@@ -35,8 +34,10 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Trace;
 import android.util.Size;
+import android.view.LayoutInflater;
 import android.view.Surface;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.CompoundButton;
@@ -46,9 +47,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
-import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.justplay.posit.R;
@@ -57,7 +58,7 @@ import com.justplay.posit.detection.env.Logger;
 
 import java.nio.ByteBuffer;
 
-public abstract class CameraActivity extends AppCompatActivity
+public abstract class CameraFragment extends Fragment
         implements OnImageAvailableListener,
         Camera.PreviewCallback,
         CompoundButton.OnCheckedChangeListener,
@@ -90,16 +91,17 @@ public abstract class CameraActivity extends AppCompatActivity
     private SwitchCompat apiSwitchCompat;
     private TextView threadsTextView;
 
+    @Nullable
     @Override
-    protected void onCreate(final Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return LayoutInflater.from(requireContext()).inflate(R.layout.activity_camera, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         LOGGER.d("onCreate " + this);
         super.onCreate(null);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
-        setContentView(R.layout.activity_camera);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         if (hasPermission()) {
             setFragment();
@@ -107,14 +109,14 @@ public abstract class CameraActivity extends AppCompatActivity
             requestPermission();
         }
 
-        threadsTextView = findViewById(R.id.threads);
-        plusImageView = findViewById(R.id.plus);
-        minusImageView = findViewById(R.id.minus);
-        apiSwitchCompat = findViewById(R.id.api_info_switch);
-        bottomSheetLayout = findViewById(R.id.bottom_sheet_layout);
-        gestureLayout = findViewById(R.id.gesture_layout);
+        threadsTextView = view.findViewById(R.id.threads);
+        plusImageView = view.findViewById(R.id.plus);
+        minusImageView = view.findViewById(R.id.minus);
+        apiSwitchCompat = view.findViewById(R.id.api_info_switch);
+        bottomSheetLayout = view.findViewById(R.id.bottom_sheet_layout);
+        gestureLayout = view.findViewById(R.id.gesture_layout);
         sheetBehavior = BottomSheetBehavior.from(bottomSheetLayout);
-        bottomSheetArrowImageView = findViewById(R.id.bottom_sheet_arrow);
+        bottomSheetArrowImageView = view.findViewById(R.id.bottom_sheet_arrow);
 
         ViewTreeObserver vto = gestureLayout.getViewTreeObserver();
         vto.addOnGlobalLayoutListener(
@@ -162,9 +164,9 @@ public abstract class CameraActivity extends AppCompatActivity
                     }
                 });
 
-        frameValueTextView = findViewById(R.id.frame_info);
-        cropValueTextView = findViewById(R.id.crop_info);
-        inferenceTimeTextView = findViewById(R.id.inference_info);
+        frameValueTextView = view.findViewById(R.id.frame_info);
+        cropValueTextView = view.findViewById(R.id.crop_info);
+        inferenceTimeTextView = view.findViewById(R.id.inference_info);
 
         apiSwitchCompat.setOnCheckedChangeListener(this);
 
@@ -366,7 +368,7 @@ public abstract class CameraActivity extends AppCompatActivity
 
     private boolean hasPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            return checkSelfPermission(PERMISSION_CAMERA) == PackageManager.PERMISSION_GRANTED;
+            return requireContext().checkSelfPermission(PERMISSION_CAMERA) == PackageManager.PERMISSION_GRANTED;
         } else {
             return true;
         }
@@ -376,7 +378,7 @@ public abstract class CameraActivity extends AppCompatActivity
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (shouldShowRequestPermissionRationale(PERMISSION_CAMERA)) {
                 Toast.makeText(
-                        CameraActivity.this,
+                        requireContext(),
                         "Camera permission is required for this demo",
                         Toast.LENGTH_LONG)
                         .show();
@@ -397,7 +399,7 @@ public abstract class CameraActivity extends AppCompatActivity
     }
 
     private String chooseCamera() {
-        final CameraManager manager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+        final CameraManager manager = (CameraManager) getContext().getSystemService(Context.CAMERA_SERVICE);
         try {
             for (final String cameraId : manager.getCameraIdList()) {
                 final CameraCharacteristics characteristics = manager.getCameraCharacteristics(cameraId);
@@ -444,7 +446,7 @@ public abstract class CameraActivity extends AppCompatActivity
                                 public void onPreviewSizeChosen(final Size size, final int rotation) {
                                     previewHeight = size.getHeight();
                                     previewWidth = size.getWidth();
-                                    CameraActivity.this.onPreviewSizeChosen(size, rotation);
+                                    CameraFragment.this.onPreviewSizeChosen(size, rotation);
                                 }
                             },
                             this,
@@ -485,7 +487,7 @@ public abstract class CameraActivity extends AppCompatActivity
     }
 
     protected int getScreenOrientation() {
-        switch (getWindowManager().getDefaultDisplay().getRotation()) {
+        switch (getActivity().getWindowManager().getDefaultDisplay().getRotation()) {
             case Surface.ROTATION_270:
                 return 270;
             case Surface.ROTATION_180:

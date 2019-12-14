@@ -21,9 +21,9 @@
         android:name="com.justplay.posit.video_screen.LiveVideoFragment"
         android:label="live_video_fragment"
         tools:layout="@layout/live_video_fragment" />
-    <activity
+    <fragment
         android:id="@+id/detectorActivity"
-        android:name="com.justplay.posit.detection.DetectorActivity"
+        android:name="com.justplay.posit.detection.DetectorFragment"
         android:label="DetectorActivity" />
 
 </navigation>
