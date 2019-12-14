@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/app_start_navigation"
-    app:startDestination="@id/splashFragment">
+    app:startDestination="@id/detectorActivity">
 
     <fragment
         android:id="@+id/splashFragment"
@@ -21,5 +21,9 @@
         android:name="com.justplay.posit.video_screen.LiveVideoFragment"
         android:label="live_video_fragment"
         tools:layout="@layout/live_video_fragment" />
+    <activity
+        android:id="@+id/detectorActivity"
+        android:name="com.justplay.posit.detection.DetectorActivity"
+        android:label="DetectorActivity" />
 
 </navigation>

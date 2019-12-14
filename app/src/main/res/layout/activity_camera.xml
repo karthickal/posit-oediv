@@ -40,17 +40,12 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:layout_alignParentTop="true"
-            android:background="@color/semi_transparent">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/tfl2_logo" />
-        </androidx.appcompat.widget.Toolbar>
+            android:background="@color/semi_transparent" />
 
     </RelativeLayout>
 
     <include
         android:id="@+id/bottom_sheet_layout"
-        layout="@layout/layout_bottom_sheet" />
+        layout="@layout/layout_bottom_sheet"
+        android:visibility="gone" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
