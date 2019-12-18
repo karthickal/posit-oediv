@@ -18,6 +18,7 @@ package com.justplay.posit.detection;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.hardware.camera2.CameraAccessException;
@@ -52,9 +53,11 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.justplay.posit.BuildConfig;
 import com.justplay.posit.R;
 import com.justplay.posit.detection.env.ImageUtils;
 import com.justplay.posit.detection.env.Logger;
+import com.justplay.posit.settings.SettingsFragment;
 
 import java.nio.ByteBuffer;
 
@@ -407,6 +410,10 @@ public abstract class CameraFragment extends Fragment
                 // We don't use a front facing camera in this sample.
                 final Integer facing = characteristics.get(CameraCharacteristics.LENS_FACING);
                 if (facing != null && facing == CameraCharacteristics.LENS_FACING_FRONT) {
+                    SharedPreferences preferences = requireContext().getSharedPreferences(BuildConfig.APPLICATION_ID, Context.MODE_PRIVATE);
+                    if (preferences.getBoolean(SettingsFragment.USE_FRONT_CAMERA, false)) {
+                        return cameraId;
+                    }
                     continue;
                 }
 
