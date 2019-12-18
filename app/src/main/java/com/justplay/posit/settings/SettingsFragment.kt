@@ -26,11 +26,12 @@ class SettingsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val preference = requireContext().getSharedPreferences(
+            BuildConfig.APPLICATION_ID,
+            Context.MODE_PRIVATE
+        )
+        camers_toggle.isChecked = preference.getBoolean(USE_FRONT_CAMERA, false)
         camers_toggle.setOnCheckedChangeListener { _, isChecked ->
-            val preference = requireContext().getSharedPreferences(
-                BuildConfig.APPLICATION_ID,
-                Context.MODE_PRIVATE
-            )
             preference.edit()
                 .putBoolean(USE_FRONT_CAMERA, isChecked)
                 .apply()

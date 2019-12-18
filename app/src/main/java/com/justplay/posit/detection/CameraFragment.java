@@ -409,12 +409,13 @@ public abstract class CameraFragment extends Fragment
 
                 // We don't use a front facing camera in this sample.
                 final Integer facing = characteristics.get(CameraCharacteristics.LENS_FACING);
-                if (facing != null && facing == CameraCharacteristics.LENS_FACING_FRONT) {
-                    SharedPreferences preferences = requireContext().getSharedPreferences(BuildConfig.APPLICATION_ID, Context.MODE_PRIVATE);
-                    if (preferences.getBoolean(SettingsFragment.USE_FRONT_CAMERA, false)) {
+                SharedPreferences preferences = requireContext().getSharedPreferences(BuildConfig.APPLICATION_ID, Context.MODE_PRIVATE);
+                if (preferences.getBoolean(SettingsFragment.USE_FRONT_CAMERA, false)) {
+                    if (facing != null && facing == CameraCharacteristics.LENS_FACING_FRONT) {
                         return cameraId;
+                    } else {
+                        continue;
                     }
-                    continue;
                 }
 
                 final StreamConfigurationMap map =

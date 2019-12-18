@@ -25,5 +25,10 @@
         android:id="@+id/detectorActivity"
         android:name="com.justplay.posit.detection.DetectorFragment"
         android:label="DetectorActivity" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.justplay.posit.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
 
 </navigation>
