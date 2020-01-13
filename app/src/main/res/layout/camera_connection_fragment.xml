@@ -17,22 +17,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.justplay.posit.detection.customview.AutoFitTextureView
+    <org.tensorflow.lite.examples.classification.customview.AutoFitTextureView
         android:id="@+id/texture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" />
-
-    <com.justplay.posit.detection.customview.RecognitionScoreView
-        android:id="@+id/results"
-        android:layout_width="match_parent"
-        android:layout_height="112dp"
         android:layout_alignParentTop="true" />
 
-    <com.justplay.posit.detection.customview.OverlayView
-        android:id="@+id/debug_overlay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>

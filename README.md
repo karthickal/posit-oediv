@@ -1,93 +1,98 @@
-# oediV - Video reimagined
-This repository was created as part of a submission for Google's #AndroidDevChallenge.
+# TensorFlow Lite image classification Android example application
 
-![making videos interactive everywhere](./resources/cover_image.jpg)
+## Overview
 
-## The Idea
+This is an example application for [TensorFlow Lite](https://tensorflow.org/lite)
+on Android. It uses
+[Image classification](https://www.tensorflow.org/lite/models/image_classification/overview)
+to continuously classify whatever it sees from the device's back camera.
+Inference is performed using the TensorFlow Lite Java API. The demo app
+classifies frames in real-time, displaying the top most probable
+classifications. It allows the user to choose between a floating point or
+[quantized](https://www.tensorflow.org/lite/performance/post_training_quantization)
+model, select the thread count, and decide whether to run on CPU, GPU, or via
+[NNAPI](https://developer.android.com/ndk/guides/neuralnetworks).
 
-#### Summary
-Oediv displays relevant and contextual information in realtime over videos. By adding an interactive layer over videos, the user can engage with the video in a lot of unique ways including and not limited to - 
+These instructions walk you through building and
+running the demo on an Android device. For an explanation of the source, see
+[TensorFlow Lite Android image classification example](EXPLORE_THE_CODE.md).
 
-* Discovering similar products from the video for sale (fashion, food, electronics, etc).
-* Following people on social media platforms.
+<!-- TODO(b/124116863): Add app screenshot. -->
 
-#### On Device Learning
+### Model
+For details of the model used, visit [Image classification](https://www.tensorflow.org/lite/models/image_classification/overview).
 
-Realtime annotation is achieved by using a custom lightweight deep learning model deployed on the user's device. The model can detect and track objects locally, and relies on the backend to identify the object using data from a feature layer. This approach allows us to create interactions over videos that are - 
-* Instant and works in real-time
-* Does not require internet; works offline
-* Prevents data piracy by not transferring the video to the server for processing.
+Downloading, extracting, and placing the model in the assets folder is managed
+automatically by download.gradle.
 
-#### Workflow
+## Requirements
 
-1. A custom SSD model deployed on the device detects objects of interest in the video frame
-2. An auto-encoder model extracts features of the detected objects 
-3. The extracted features are matched for similarity either from 
-   1. a local database containing a minimal catalog of products that is trending (or)
-   2. from the backend server (uses internet)
+*   Android Studio 3.2 (installed on a Linux, Mac or Windows machine)
 
-#### So far
+*   Android device in
+    [developer mode](https://developer.android.com/studio/debug/dev-options)
+    with USB debugging enabled
 
-* Launched a web app to understand user behaviour and get initial feedback. Please see - [Web Demo](http://www.justplay.tv/watch/1). Play the video and pause anywhere to explore the products used. Note that this demo does not leverage on device machine learning and displays products only when the video is paused.
-* Alpha version of SDK available on Android. The SDK is currently under test with an Indian video publisher app. The SDK does not incorporate on device learning. Check out our [SDK Documentation](../master/resources/posit_sdk_doc.pdf) for more details.   
+*   USB cable (to connect Android device to your computer)
 
-## The Plan
+## Build and run
 
-#### Timeline
+### Step 1. Clone the TensorFlow examples source code
 
-##### December 2019
+Clone the TensorFlow examples GitHub repository to your computer to get the demo
+application.
 
-1. A working prototype that uses on device machine learning to detect apparel objects.
-2. Product Roadmap.
+```
+git clone https://github.com/tensorflow/examples
+```
 
-##### January 2020
+Open the TensorFlow source code in Android Studio. To do this, open Android
+Studio and select `Open an existing project`, setting the folder to
+`examples/lite/examples/image_classification/android`
 
-1. Improved prototype that extract features of the objects on the device.
-2. UI and UX Plan.
-3. Acquire dataset for training.
+<img src="images/classifydemo_img1.png?raw=true" />
 
-##### March 2020
+### Step 2. Build the Android Studio project
 
-1. Fully trained models.
-2. Beta version of the product.
+Select `Build -> Make Project` and check that the project builds successfully.
+You will need Android SDK configured in the settings. You'll need at least SDK
+version 23. The `build.gradle` file will prompt you to download any missing
+libraries.
 
-##### April 2020
+The file `download.gradle` directs gradle to download the two models used in the
+example, placing them into `assets`.
 
-1. Production mode.
+<img src="images/classifydemo_img4.png?raw=true" style="width: 40%" />
 
-#### Distribution Plan
+<img src="images/classifydemo_img2.png?raw=true" style="width: 60%" />
 
-* Without Google's support, especially because Android does not have an API for a 3rd party app to listen to video events and share frames, we plan to be available as a plugin for video publishers to integrate into their Android/iOs app. This means only videos streamed via our distribution partners are interactive.
+<aside class="note"><b>Note:</b><p>`build.gradle` is configured to use
+TensorFlow Lite's nightly build.</p><p>If you see a build error related to
+compatibility with Tensorflow Lite's Java API (for example, `method X is
+undefined for type Interpreter`), there has likely been a backwards compatible
+change to the API. You will need to run `git pull` in the examples repo to
+obtain a version that is compatible with the nightly build.</p></aside>
 
-#### Dataset Plan
+### Step 3. Install and run the app
 
-* By partnering with e-commerce vendors for qualified traffic.
-* By on-boarding influencers and content creators to allow face identification.
+Connect the Android device to the computer and be sure to approve any ADB
+permission prompts that appear on your phone. Select `Run -> Run app.` Select
+the deployment target in the connected devices to the device on which the app
+will be installed. This will install the app on the device.
 
-#### Google's Support 
+<img src="images/classifydemo_img5.png?raw=true" style="width: 60%" />
 
-* Make our tech a part of Android with 
-  * OS Level integrations or 
-  * by allowing our app access to the streaming video's view upon user consent.
-  
-  This will enable us to make all videos interactive instead of just those that are played from our distribution partners.
-* Access to the Google Shopping Ads data as an API so that we can display products for sale to users. This will help us become globally available instantly by eliminating the need to partner with e-commerce vendors independently.
-* Engineering Mentorship to improve detections under occlusions, different viewpoints and other complexities 
- 
-## About Us
+<img src="images/classifydemo_img6.png?raw=true" style="width: 70%" />
 
-#### The Development Team
+<img src="images/classifydemo_img7.png?raw=true" style="width: 40%" />
 
-* Udhaya Kumar - Android Developer 
-* Shiddharth Saran - Python Developer  
-* Somasundaram M - Machine Learning Engineer
-* Jailany M - React Developer
-* Manju R - Visual Design
-* Karthick L - Product
+<img src="images/classifydemo_img8.png?raw=true" style="width: 80%" />
 
-#### Our Startup
+To test the app, open the app called `TFL Classify` on your device. When you run
+the app the first time, the app will request permission to access the camera.
+Re-installing the app may require you to uninstall the previous installations.
 
-We are a startup working on redefining the way videos are consumed today. For more information please check - www.posit.tech
-
-**_Note: We are willing to opensource our project along with the dataset, architecture and trained stable versions of all the models._**    
-
+## Assets folder
+_Do not delete the assets folder content_. If you explicitly deleted the
+files, choose `Build -> Rebuild` to re-download the deleted model files into the
+assets folder.

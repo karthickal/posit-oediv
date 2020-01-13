@@ -13,40 +13,30 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 -->
-
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#00000000">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/black"
+        android:background="#00000000"
         android:orientation="vertical">
 
-
-        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
+        <fragment
             android:id="@+id/container"
+            class="org.tensorflow.lite.examples.classification.PlayActivity"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context="org.tensorflow.demo.CameraActivity" />
+            android:layout_height="wrap_content"
+            android:name="org.tensorflow.lite.examples.classification.PlayActivity"
+            android:layout_gravity="top"
+            android:layout_marginTop="20dp"/>
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:layout_alignParentTop="true"
-            android:background="@color/semi_transparent"
-            android:visibility="gone" />
-
-    </RelativeLayout>
+    </FrameLayout>
 
     <include
         android:id="@+id/bottom_sheet_layout"
-        layout="@layout/layout_bottom_sheet"
-        android:visibility="gone" />
+        layout="@layout/layout_bottom_sheet" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
