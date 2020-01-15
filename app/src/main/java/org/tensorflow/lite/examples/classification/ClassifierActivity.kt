@@ -39,31 +39,6 @@ class ClassifierActivity : CameraActivity() {
     /** Input image size of the model along y axis.  */
     private var imageSizeY = 0
 
-    override fun getLayoutId(): Int {
-        return R.layout.camera_connection_fragment
-    }
-
-    override fun getDesiredPreviewFrameSize(): Size {
-        return DESIRED_PREVIEW_SIZE
-    }
-
-    public override fun onPreviewSizeChosen(size: Size, rotation: Int) {
-        val textSizePx = TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP, TEXT_SIZE_DIP, resources.displayMetrics)
-        borderedText = BorderedText(textSizePx)
-        borderedText!!.setTypeface(Typeface.MONOSPACE)
-        recreateClassifier(model, device, numThreads)
-        if (classifier == null) {
-            LOGGER.e("No classifier on preview!")
-            return
-        }
-        previewWidth = size.width
-        previewHeight = size.height
-        sensorOrientation = rotation - screenOrientation
-        LOGGER.i("Camera orientation relative to screen canvas: %d", sensorOrientation)
-        LOGGER.i("Initializing at size %dx%d", previewWidth, previewHeight)
-    }
-
     override fun processImage(bitmap: Bitmap) {
         rgbFrameBitmap = bitmap
         val cropSize = Math.min(previewWidth, previewHeight)
@@ -126,7 +101,5 @@ class ClassifierActivity : CameraActivity() {
 
     companion object {
         private val LOGGER = Logger()
-        private val DESIRED_PREVIEW_SIZE = Size(640, 480)
-        private const val TEXT_SIZE_DIP = 10f
     }
 }

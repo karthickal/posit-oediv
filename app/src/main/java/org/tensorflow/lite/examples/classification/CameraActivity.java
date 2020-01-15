@@ -391,12 +391,6 @@ public abstract class CameraActivity extends AppCompatActivity
 
     protected abstract void processImage(Bitmap bitmap);
 
-    protected abstract void onPreviewSizeChosen(final Size size, final int rotation);
-
-    protected abstract int getLayoutId();
-
-    protected abstract Size getDesiredPreviewFrameSize();
-
     protected abstract void onInferenceConfigurationChanged();
 
     @Override
